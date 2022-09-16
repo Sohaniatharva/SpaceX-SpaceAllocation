@@ -5,3 +5,4 @@ On day 2 we will connect our repo to SQL with jpa and make additional changes ac
 Final PPT will be created on the sunday after 8:00 p.m.
 If we win, we will prove to be best working team and collaborate for futhure much more projects. 
 So first we will build models in java and intialize working API's for get mapping and post mapping.
+
