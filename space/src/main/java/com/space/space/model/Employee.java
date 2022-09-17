@@ -15,10 +15,10 @@ public class Employee {
     @Id
     private int employeeId;
     private String employeeName;
-    private String reportsTo;
+    private Employee reportsTo;
     private String designation;
-    private String OeCode;
-    private String teamOeCode;
-    private String departmentOeCode;
+    private String OECode;
+    private TeamOECode teamOECode;
+    private DepartmentOECode departmentOECode;
     private String password;
 }

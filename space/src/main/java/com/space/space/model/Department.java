@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Department {
 
     @Id
-    private String DepartmentOECode;
+    private DepartmentOECode DepartmentOECode;
     private String name;
     private int VPEmpId;
 
