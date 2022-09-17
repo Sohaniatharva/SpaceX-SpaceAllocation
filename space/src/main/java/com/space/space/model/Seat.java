@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Seat {
   @Id
   private String seatId;
-  private DepartmentOECode deptOECode;
-  private TeamOECode teamOECode;
+  private String deptOECode;
+  private String teamOECode;
   private int employeeId;
 }

@@ -22,14 +22,14 @@ public class SeatController {
         return seatService.getAllSeats();
     }
 
-    @GetMapping("/getSeatById/{id}")
-    public Seat getSeatById(@PathVariable String id) {
-        return seatService.getSeatById(id);
+    @GetMapping("/getSeatById/{seatId}")
+    public Seat getSeatById(@PathVariable String seatId) {
+        return seatService.getSeatById(seatId);
     }
 
-    @DeleteMapping("/deleteSeatById/{id}")
-    public boolean deleteSeatById(@PathVariable String id) {
-        return seatService.deleteSeat(id);
+    @DeleteMapping("/deleteSeatById/{seatId}")
+    public boolean deleteSeatById(@PathVariable String seatId) {
+        return seatService.deleteSeat(seatId);
     }
 
     @PutMapping("/seat")
