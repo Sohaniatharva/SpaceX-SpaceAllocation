@@ -1,0 +1,10 @@
+.upr-div{
+    position: fixed;
+    top:0;
+    height: 40px;
+    background-color: black;
+    width: 100%;
+}
+.outer-div{
+    height: 100%;
+}
