@@ -18,15 +18,14 @@ public class Employee {
     private String designation;
     private String OECode;
 
-//    private TeamOECode teamOECode;
-//    private DepartmentOECode departmentOECode;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "teamOECode", referencedColumnName = "teamOECode")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "team_OE_code")
     private Team team;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "departmentOECode", referencedColumnName = "departmentOECode")
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "department_OE_code")
     private Department department;
 
     private String password;

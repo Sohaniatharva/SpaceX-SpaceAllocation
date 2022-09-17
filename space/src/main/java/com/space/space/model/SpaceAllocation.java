@@ -11,11 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SpaceAllocation {
     private int allocationId;
-    private DepartmentOECode deptOECode;
+    private String deptOECode;
     private Date startDate;
     private String seatIdStart;
     private String seatIdEnd;
-
-
-
 }
