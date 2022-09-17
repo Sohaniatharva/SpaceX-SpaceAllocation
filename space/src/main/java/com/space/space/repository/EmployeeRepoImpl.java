@@ -8,7 +8,9 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
+import com.space.space.model.DepartmentOECode;
 import com.space.space.model.Employee;
+import com.space.space.model.TeamOECode;
 @Repository
 public class EmployeeRepoImpl implements EmployeeRep {
     private Map<Integer, Employee> employeeDb;
@@ -16,13 +18,11 @@ public class EmployeeRepoImpl implements EmployeeRep {
 	public void init() {
 		
 		employeeDb=new HashMap<>();
-		Employee emp1= new Employee(1001, "Kunal", LocalDate.parse("2020-02-10"));
-		Employee emp2= new Employee(1002, "Suraj", LocalDate.parse("2021-10-20"));
-		Employee emp3= new Employee(1003, "Manish", LocalDate.parse("2020-04-25"));
+		Employee emp1= new Employee(1011,"Sejal Jaiswal", null, "VP","MB", TeamOECode.MBLE,DepartmentOECode.TLM, "Kartikeya");
+        Employee emp1= new Employee(1012,"Atul Kumar Gupta", null, "AVP","MB", TeamOECode.MBLE,DepartmentOECode.TLM, "Kartikeya");
 		
-		employeeDb.put(emp1.getId(), emp1);
-		employeeDb.put(emp2.getId(), emp2);
-		employeeDb.put(emp3.getId(), emp3);
+		
+		
 		
 	}
     @Override
