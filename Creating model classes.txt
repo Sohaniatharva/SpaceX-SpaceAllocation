@@ -9,11 +9,15 @@ So first we will build models in java and intialize working API's for get mappin
 Atul 
 Seat 
 space Allocation
+Employee Repo
 
 
 Atharva
+Department
+
 
 
 Aashi:
 Employee model
+Seat Repo
 
