@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -18,5 +17,8 @@ class Team {
     private String teamOECode;
     private String teamName;
     private int AVPEmpId;
-    private String DepartmentOECode;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "department_OE_code")
+    private Department department;
 }

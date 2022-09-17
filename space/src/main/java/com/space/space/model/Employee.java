@@ -17,6 +17,7 @@ public class Employee {
     private int reportsTo;
     private String designation;
     private String OECode;
+    private String password;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -28,5 +29,7 @@ public class Employee {
     @JoinColumn(name = "department_OE_code")
     private Department department;
 
-    private String password;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "seatId")
+    private Seat seat;
 }
