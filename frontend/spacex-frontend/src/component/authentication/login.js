@@ -13,7 +13,7 @@ function Login() {
     setIsValid(current => !current);
     
     if (isValid) {
-      navigate('/members/avp/', {state:formData});
+      navigate('/members/avp/', {state:formData.empId});
     }
   }
   const handleChange = (e) => {
