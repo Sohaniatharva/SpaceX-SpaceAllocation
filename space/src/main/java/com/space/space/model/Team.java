@@ -14,8 +14,8 @@ public
 class Team {
 
     @Id
-    private TeamOECode TeamOECode;
+    private String teamOECode;
     private String teamName;
     private int AVPEmpId;
-    private DepartmentOECode DepartmentOECode;
+    private String DepartmentOECode;
 }
