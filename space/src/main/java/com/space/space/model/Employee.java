@@ -29,7 +29,7 @@ public class Employee {
     @JoinColumn(name = "department_OE_code")
     private Department department;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "seatId")
-    private Seat seat;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "seatId")
+//    private Seat seat;
 }

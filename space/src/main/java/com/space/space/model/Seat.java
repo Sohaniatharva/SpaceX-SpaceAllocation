@@ -14,9 +14,8 @@ public class Seat {
   @Id
   private String seatId;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "employee_id")
-  private Employee employee;
+//  @OneToOne(mappedBy = "seat")
+//  private Employee employee;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "team_OE_code")
