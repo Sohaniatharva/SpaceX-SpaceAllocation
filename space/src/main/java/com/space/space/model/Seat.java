@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class Seat {
-  public String seatId;
-  public DepartmentOECode deptOECode;
-  public TeamOECode teamOECode;
-  public int employeeId;
+  private String seatId;
+  private DepartmentOECode deptOECode;
+  private TeamOECode teamOECode;
+  private int employeeId;
 }
