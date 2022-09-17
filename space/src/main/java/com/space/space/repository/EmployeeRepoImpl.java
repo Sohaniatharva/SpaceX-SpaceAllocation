@@ -18,8 +18,8 @@ public class EmployeeRepoImpl implements EmployeeRep {
 	public void init() {
 		
 		employeeDb=new HashMap<>();
-		Employee emp1= new Employee(1011,"Sejal Jaiswal", null, "VP","MB", TeamOECode.MBLE,DepartmentOECode.TLM, "Kartikeya");
-        Employee emp1= new Employee(1012,"Atul Kumar Gupta", null, "AVP","MB", TeamOECode.MBLE,DepartmentOECode.TLM, "Kartikeya");
+		Employee Sejal_Jaiswal= new Employee(1011,"Sejal Jaiswal", null, "VP","MB", TeamOECode.MBLE,DepartmentOECode.TLM, "Kartikeya");
+        Employee Atul_Kumar_Gupta= new Employee(1012,"Atul Kumar Gupta", Sejal_Jaiswal, "AVP","MB", TeamOECode.MBLE,DepartmentOECode.TLM, "Kartikeya");
 		
 		
 		
@@ -46,6 +46,10 @@ public class EmployeeRepoImpl implements EmployeeRep {
     @Override
     public List<Employee> getAllEmployees() {
         // TODO Auto-generated method stub
+        return null;
+    }
+    @Override
+    public Employee updateEmployee(Employee employee){
         return null;
     }
     
