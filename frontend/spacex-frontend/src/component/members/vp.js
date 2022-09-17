@@ -9,7 +9,6 @@ const VP=()=> {
     <div class="outer-div">
        <div class="upr-div">
         <img style={{height:"60px",marginLeft:"8px"}} src="http://www.fundraiso.ch/wp-content/uploads/2021/02/CS-Logo-1-scaled.jpg"></img>
-        
        </div>
        <h1>I am VP</h1>
     </div>
