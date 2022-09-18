@@ -2,6 +2,7 @@ package com.space.space.controller;
 
 import com.space.space.model.DepartmentSeats;
 import com.space.space.model.Seat;
+import com.space.space.model.Space;
 import com.space.space.model.SpaceAllocation;
 import com.space.space.service.SpaceAllocationService;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +32,7 @@ public class SpaceAllocationController {
     }
 
     @PostMapping("/spaceX/allocateSpace")
-    public boolean allocateSpace(@RequestBody SpaceAllocation spaceAllocation){
-        return spaceAllocationService.allocateSpace(spaceAllocation);
+    public boolean allocateSpace(@RequestBody Space space){
+        return spaceAllocationService.allocateSpace(space);
     }
 }

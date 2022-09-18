@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class Seat {
     @Id
     private String seatId;
+    private int floor;
 
 //  @OneToOne(mappedBy = "seat")
 //  private Employee employee;
