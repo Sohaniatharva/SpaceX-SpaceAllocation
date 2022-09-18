@@ -19,7 +19,7 @@ public class Seat {
 //  private Employee employee;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeId")
+    @JoinColumn(name = "employeeId",unique = true)
     @JsonBackReference
     private Employee employee;
 

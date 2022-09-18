@@ -19,8 +19,6 @@ public class Employee {
     private String designation;
     private String OECode;
     private String password;
-
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_OE_code")
     private Team team;

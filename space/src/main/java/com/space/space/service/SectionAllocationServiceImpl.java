@@ -27,7 +27,7 @@ public class SectionAllocationServiceImpl implements SectionAllocationService{
             return false;
         }
         else{
-            sectionAllocationRepo.save(new SectionAllocation(10,sectionAllocation.getTeamOECode(),sectionAllocation.getStartDate(),sectionAllocation.getEndDate(),sectionAllocation.getSeatIdStart(),sectionAllocation.getSeatIdEnd()));
+            sectionAllocationRepo.save(sectionAllocation);
 
             String[] seatStartId = sectionAllocation.getSeatIdStart().split("-");
             String[] seatEndId = sectionAllocation.getSeatIdEnd().split("-");

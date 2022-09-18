@@ -1,9 +1,8 @@
 package com.space.space.service;
 
-import com.space.space.model.Department;
-import com.space.space.model.Seat;
-import com.space.space.model.SpaceAllocation;
+import com.space.space.model.*;
 import com.space.space.repository.DepartmentRepo;
+import com.space.space.repository.EmployeeRepo;
 import com.space.space.repository.SeatRepo;
 import com.space.space.repository.SpaceAllocationRepo;
 import lombok.extern.slf4j.Slf4j;
@@ -18,12 +17,12 @@ public class SpaceAllocationServiceImpl implements SpaceAllocationService{
 
     @Autowired
     private SpaceAllocationRepo spaceAllocationRepo;
-
     @Autowired
     private SeatRepo seatRepo;
-
     @Autowired
     private DepartmentRepo departmentRepo;
+    @Autowired
+    private EmployeeRepo employeeRepo;
 
 
     @Override
@@ -33,7 +32,7 @@ public class SpaceAllocationServiceImpl implements SpaceAllocationService{
             return false;
        }
        else{
-           spaceAllocationRepo.save(new SpaceAllocation(10,spaceAllocation.getDepartmentOECode(),spaceAllocation.getStartDate(),spaceAllocation.getEndDate(),spaceAllocation.getSeatIdStart(),spaceAllocation.getSeatIdEnd()));
+           spaceAllocationRepo.save(spaceAllocation);
 
            String[] seatStartId = spaceAllocation.getSeatIdStart().split("-");
            String[] seatEndId = spaceAllocation.getSeatIdEnd().split("-");
@@ -45,5 +44,12 @@ public class SpaceAllocationServiceImpl implements SpaceAllocationService{
            }
        }
         return true;
+    }
+
+    @Override
+    public DepartmentSeats getAllSeats(int empId) {
+        Employee employee = employeeRepo.findByEmployeeId(empId);
+        DepartmentSeats departmentSeats = new DepartmentSeats(employee.getDepartment().getDepartmentOECode(),seatRepo.findAll());
+        return departmentSeats;
     }
 }
