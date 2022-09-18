@@ -1,5 +1,6 @@
 package com.space.space.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,18 +12,23 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Seat {
-  @Id
-  private String seatId;
+    @Id
+    private String seatId;
 
 //  @OneToOne(mappedBy = "seat")
 //  private Employee employee;
 
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "team_OE_code")
-  private Team team;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employeeId")
+    @JsonBackReference
+    private Employee employee;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "team_OE_code")
+    private Team team;
 
 
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "department_OE_code")
-  private Department department;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "department_OE_code")
+    private Department department;
 }

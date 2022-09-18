@@ -32,8 +32,8 @@ public class SeatController {
         return seatService.deleteSeat(seatId);
     }
 
-    @PutMapping("/seat")
-    public Seat updateSeat(@RequestBody Seat seat) {
-        return seatService.updateSeat(seat);
+    @PutMapping("/seat/{seatId}")
+    public Seat updateSeat(@PathVariable String seatId, @RequestBody Seat seat) {
+        return seatService.updateSeat(seatId, seat);
     }
 }
