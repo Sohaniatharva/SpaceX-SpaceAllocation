@@ -1,19 +1,58 @@
-.upr-div{
+.upr-div {
     height: 60px;
-    background-color:white;
+    background-color: white;
     width: 100%;
 }
-.outer-div{
+
+.outer-div {
     height: 100%;
 }
-.username{
+
+.username {
     display: flex;
     justify-content: flex-end;
     margin: auto 0;
 }
-.dropDownBtn{
+
+.dropDownBtn {
     border-radius: 0;
+    margin: 18px;
 }
-.dropDownRow{
+
+.dropDownRow {
     margin: 5px 15px;
+}
+
+.box-style {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.seatBox {
+    height: auto;
+    background-color: #accbff;
+    width: 95%;
+    margin: auto;
+    border: 3px solid navy;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.bookBtn {
+    margin: auto;
+    padding: auto;
+    text-align: center;
+
+
+}
+
+.full-ht {
+    height: inherit;
+}
+
+.wing {
+    width: "49%";
+    box-shadow: 'navy 1px 5px 8px 2px';
+    border-radius: '5px';
+    margin: '2px'
 }

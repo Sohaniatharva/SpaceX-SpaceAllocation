@@ -1,5 +1,6 @@
 package com.space.space.service;
 
+import com.space.space.exception.DepartmentNotFoundException;
 import com.space.space.model.Department;
 import com.space.space.repository.DepartmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ public class DepartmentService {
     }
 
     public Department getDepartmentById(String id) {
-        return departmentRepo.findById(id).get();
+        return departmentRepo.findById(id).orElseThrow(() -> new
+                DepartmentNotFoundException("Department with id : " + id + " not found"));
     }
 
     public boolean deleteDepartmentById(String id) {

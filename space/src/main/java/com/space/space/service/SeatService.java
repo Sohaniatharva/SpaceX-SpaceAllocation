@@ -1,5 +1,6 @@
 package com.space.space.service;
 
+import com.space.space.exception.SeatNotFoundException;
 import com.space.space.model.Seat;
 import com.space.space.repository.SeatRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class SeatService {
     }
 
     public Seat getSeatById(String seatId) {
-        return seatRepo.findById(seatId).get();
+        return seatRepo.findById(seatId).orElseThrow(() -> new
+                SeatNotFoundException("Seat with id : " + seatId + " not found"));
     }
 
     public Seat updateSeat(String seatId, Seat seat) {

@@ -14,12 +14,13 @@ import javax.persistence.*;
 public class Seat {
     @Id
     private String seatId;
+    private int floor;
 
 //  @OneToOne(mappedBy = "seat")
 //  private Employee employee;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeId")
+    @JoinColumn(name = "employeeId",unique = true)
     @JsonBackReference
     private Employee employee;
 

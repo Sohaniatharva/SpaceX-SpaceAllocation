@@ -2,12 +2,15 @@ package com.space.space.controller;
 
 import com.space.space.model.Team;
 import com.space.space.service.TeamService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Slf4j
+@CrossOrigin(origins = "http://localhost:3000")
 public class TeamController {
     @Autowired
     private TeamService teamService;

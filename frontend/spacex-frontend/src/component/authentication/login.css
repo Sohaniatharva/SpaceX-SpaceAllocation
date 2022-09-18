@@ -11,8 +11,7 @@
 }
 .outerDiv{
    height: 100%;
-    margin: 8% 38%;
-    
+    margin: 12% 38%;
     background-color: #accbff; 
 }
 .heading{
@@ -24,8 +23,11 @@
     margin: 20px;
 }
 .form-group{
-    margin: 8px;
+    margin: 30px;
 }
 .form-style{
     padding: 8px;
+}
+.form-control{
+    width:220px;
 }
