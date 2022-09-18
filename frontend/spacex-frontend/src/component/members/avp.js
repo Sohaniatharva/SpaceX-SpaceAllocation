@@ -1,6 +1,6 @@
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Form } from 'react-bootstrap';
 import "./styles.css"
@@ -13,8 +13,6 @@ const AVP = () => {
   const location = useLocation();
   const [floor, setFloor] = useState(1);
   const [show, setShow] = useState(false);
-  const [OEcode,setOEcode]=useState(null);
-  const [seatKey, setSeatKey]= useState([]);
   let [num, setNum]= useState(0);
   let incNum =()=>{
       if(num<160)
@@ -39,16 +37,6 @@ const AVP = () => {
     setShow(current => !current);
     
   }
-  useEffect(()=>{
-  //  axios.get(`http://localhost:9091/spaceX/allocateSpace/?${location.state.empId}`).then(res=>{console.log(res.data)})
-  axios.get(` http://localhost:9091/spaceX/allocateSpace/{empId}?empId=${location.state.empId} `).then((res)=>{
- 
-    setOEcode(res.data.departmentOECode);
-    setSeatKey(res.data.seats);
-   
-  }) 
-  },[]);
-
   
   return (
     <div class="outer-div">
@@ -105,20 +93,20 @@ const AVP = () => {
       <div class="seatBox">
         <div class="row" style={{margin:0,padding:0,display:'flex',justifyContent:'space-between'}} >
           <div class="col=lg-6" style={{ width: "49%",boxShadow:'navy 1px 5px 8px 2px',borderRadius:'5px',margin:'2px' }}>
-            <Seats wing="A" floor={floor} oecode={OEcode} seats={seatKey}></Seats>
+            <Seats wing="A" floor={floor}></Seats>
           </div>
           <div class="col=lg-6" style={{ width: "49%", float: "left" ,boxShadow:'navy 1px 5px 8px 2px',borderRadius:'5px',margin:'2px'}}>
-            <Seats wing="B" floor={floor} oecode={OEcode} seats={seatKey}></Seats>
+            <Seats wing="B" floor={floor}></Seats>
           </div>
 
         </div>
         <br></br>
         <div class="row" style={{margin:0,padding:0,display:'flex',justifyContent:'space-between'}} >
           <div class="col=lg-6"style={{ width: "49%",boxShadow:'navy 1px 5px 8px 2px',borderRadius:'5px',margin:'2px' }}>
-            <Seats wing="C" floor={floor} oecode={OEcode} seats={seatKey}></Seats>
+            <Seats wing="C" floor={floor}></Seats>
           </div>
           <div class="col=lg-6" style={{ width: "49%",boxShadow:'navy 1px 5px 8px 2px',borderRadius:'5px',margin:'2px' }}>
-            <Seats wing="D" floor={floor} oecode={OEcode} seats={seatKey}></Seats>
+            <Seats wing="D" floor={floor}></Seats>
           </div>
 
         </div>
