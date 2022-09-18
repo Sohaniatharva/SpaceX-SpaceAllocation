@@ -14,16 +14,13 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class SpaceAllocation {
+public class SectionAllocation {
     @Id
     @GeneratedValue
     private int allocationId;
-    private String departmentOECode;
+    private String teamOECode;
     private Date startDate;
     private Date endDate;
     private String seatIdStart;
     private String seatIdEnd;
-
-
-
 }
