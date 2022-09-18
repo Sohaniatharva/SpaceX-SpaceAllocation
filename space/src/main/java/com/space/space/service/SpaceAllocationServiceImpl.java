@@ -26,21 +26,38 @@ public class SpaceAllocationServiceImpl implements SpaceAllocationService{
 
 
     @Override
-    public boolean allocateSpace(SpaceAllocation spaceAllocation) {
-       if (spaceAllocationRepo.findByDepartmentOECode(spaceAllocation.getDepartmentOECode())!=null)
+    public boolean allocateSpace(Space space) {
+        String deptOECode = employeeRepo.findByEmployeeId(space.getEmpId()).getDepartment().getDepartmentOECode();
+        SpaceAllocation spaceAllocation = spaceAllocationRepo.findByDepartmentOECode(deptOECode);
+       if (spaceAllocation!=null)
        {
             return false;
        }
        else{
+           String startSeat = spaceAllocationRepo.getStartSeat(space.getFloor());
+           String[] seatStartId = spaceAllocation.getSeatIdStart().split("-");
+           String[] wings = {"A","B","C","D"};
+           int j = 0;
+           int seatNumber = Integer.parseInt(seatStartId[2]);
+           if (seatStartId[1]=="A"){j=0;}
+           else if (seatStartId[1]=="B"){j=1;}
+           else if (seatStartId[1]=="C"){j=2;}
+           else{j=3;}
+           //finding start and end seats
+           while(true){
+
+               while(seatNumber<=40){
+
+               }
+
+           }
            spaceAllocationRepo.save(spaceAllocation);
 
-           String[] seatStartId = spaceAllocation.getSeatIdStart().split("-");
-           String[] seatEndId = spaceAllocation.getSeatIdEnd().split("-");
            int startId = Integer.parseInt(seatStartId[2]);
            int endId = Integer.parseInt(seatEndId[2]);
            for (int i = startId;i<= endId; i++) {
                String seatId = seatStartId[0]+"-"+seatStartId[1]+"-"+String.valueOf(i);
-               seatRepo.save(new Seat(seatId,null,null,departmentRepo.findByDepartmentOECode(spaceAllocation.getDepartmentOECode())));
+               seatRepo.save(new Seat(seatId, space.getFloor(), null,null,departmentRepo.findByDepartmentOECode(spaceAllocation.getDepartmentOECode())));
            }
        }
         return true;
