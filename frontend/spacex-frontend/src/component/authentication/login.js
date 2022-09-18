@@ -1,29 +1,31 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import { useEffect } from "react";
 
 function Login() {
+  
   const [isValid, setIsValid] = useState(true);
   const [formData, setFormData] = useState({
     empId: "",
     password: ""
   });
   let navigate = useNavigate();
-  const handelClick = () => {
+  const handelClick = (e) => {
     setIsValid(current => !current);
-    
+   
     if (isValid) {
-      navigate('/members/avp/', {state:formData.empId});
+      navigate('/members/avp/', {state:formData.empId, });
     }
   }
-  const handleChange = (e) => {
 
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
    
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    handelClick();
+    handelClick(e);
   }
   return (
     <div >
