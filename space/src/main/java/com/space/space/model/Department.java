@@ -11,8 +11,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Department {
+
     @Id
     private String departmentOECode;
     private String name;
     private int VPEmpId;
+
 }

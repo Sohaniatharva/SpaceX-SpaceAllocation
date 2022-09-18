@@ -36,5 +36,4 @@ public class TeamController {
     public Team updateTeam(@PathVariable String teamOeCode, @RequestBody Team team){
         return teamService.updateTeam(teamOeCode, team);
     }
-
 }

@@ -11,8 +11,9 @@ function Login() {
   let navigate = useNavigate();
   const handelClick = () => {
     setIsValid(current => !current);
+    
     if (isValid) {
-      navigate('/members/avp/', formData);
+      navigate('/members/avp/', {state:formData.empId});
     }
   }
   const handleChange = (e) => {

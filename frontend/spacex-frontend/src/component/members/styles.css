@@ -1,10 +1,19 @@
 .upr-div{
-    position: fixed;
-    top:0;
     height: 60px;
     background-color:white;
     width: 100%;
 }
 .outer-div{
     height: 100%;
+}
+.username{
+    display: flex;
+    justify-content: flex-end;
+    margin: auto 0;
+}
+.dropDownBtn{
+    border-radius: 0;
+}
+.dropDownRow{
+    margin: 5px 15px;
 }
