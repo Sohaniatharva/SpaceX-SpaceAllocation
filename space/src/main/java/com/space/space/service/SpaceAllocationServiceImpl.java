@@ -47,7 +47,7 @@ public class SpaceAllocationServiceImpl implements SpaceAllocationService{
            while(true){
 
                while(seatNumber<=40){
-
+                   
                }
 
            }
