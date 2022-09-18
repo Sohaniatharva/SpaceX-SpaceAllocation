@@ -11,5 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class DepartmentSeats {
     private String departmentOECode;
+    private String teamOECode;
+    private String designation;
     private List<Seat> seats;
 }

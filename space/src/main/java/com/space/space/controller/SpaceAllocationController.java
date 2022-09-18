@@ -1,6 +1,7 @@
 package com.space.space.controller;
 
 import com.space.space.model.DepartmentSeats;
+import com.space.space.model.Space;
 import com.space.space.service.SpaceAllocationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class SpaceAllocationController {
     }
 
     @PostMapping("/spaceX/allocateSpace")
-    public boolean allocateSpace(@RequestBody Space space){
+    public DepartmentSeats allocateSpace(@RequestBody Space space){
         return spaceAllocationService.allocateSpace(space);
     }
 }

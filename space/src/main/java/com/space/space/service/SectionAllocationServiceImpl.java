@@ -36,7 +36,7 @@ public class SectionAllocationServiceImpl implements SectionAllocationService{
             for (int i = startId;i<= endId; i++) {
                 String seatId = seatStartId[0]+"-"+seatStartId[1]+"-"+String.valueOf(i);
                 Department department = teamRepo.findByTeamOECode(sectionAllocation.getTeamOECode()).getDepartment();
-                seatRepo.save(new Seat(seatId,null,teamRepo.findByTeamOECode(sectionAllocation.getTeamOECode()),department));
+               // seatRepo.save(new Seat(seatId,null,teamRepo.findByTeamOECode(sectionAllocation.getTeamOECode()),department));
             }
         }
         return true;

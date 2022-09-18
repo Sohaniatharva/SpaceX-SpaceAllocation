@@ -28,7 +28,7 @@ public class SeatAllocationServiceImpl implements SeatAllocationService{
             Employee employee = employeeRepo.findByEmployeeId(seatAllocation.getEmpId());
             Team team = employee.getTeam();
             Department department = employee.getDepartment();
-            seatRepo.save(new Seat(seatAllocation.getSeatId(),employee,team,department));
+            //seatRepo.save(new Seat(seatAllocation.getSeatId(),employee,team,department));
         }
         return true;
     }
