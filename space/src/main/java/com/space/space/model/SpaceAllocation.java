@@ -19,8 +19,8 @@ public class SpaceAllocation {
     @GeneratedValue
     private int allocationId;
     private String departmentOECode;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
     private String seatIdStart;
     private String seatIdEnd;
 

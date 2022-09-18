@@ -10,9 +10,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Space {
+    private String eDate;
     private int empId;
-    private int numberOfSeats;
-    private Date sDate;
-    private Date eDate;
     private int floor;
+    private int numberOfSeats;
+    private String sDate;
 }

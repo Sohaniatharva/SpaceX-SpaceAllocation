@@ -39,9 +39,9 @@ public class SpaceAllocationServiceImpl implements SpaceAllocationService{
            String[] wings = {"A","B","C","D"};
            int j = 0;
            int seatNumber = Integer.parseInt(seatStartId[2]);
-           if (seatStartId[1]=="A"){j=0;}
-           else if (seatStartId[1]=="B"){j=1;}
-           else if (seatStartId[1]=="C"){j=2;}
+           if (seatStartId[1].equals("A")){j=0;}
+           else if (seatStartId[1].equals("B")){j=1;}
+           else if (seatStartId[1].equals("C")){j=2;}
            else{j=3;}
            int numberOfSeats = space.getNumberOfSeats();
            //finding start and end seats
@@ -59,7 +59,7 @@ public class SpaceAllocationServiceImpl implements SpaceAllocationService{
                              numberOfSeats--;
            }
            String endSeat = "L"+String.valueOf(space.getFloor())+"-"+wings[j]+"-"+String.valueOf(seatNumber);
-           spaceAllocation = new SpaceAllocation(10,deptOECode,space.getSDate(),space.getEDate(),startSeat,endSeat);
+           spaceAllocation = new SpaceAllocation(10,deptOECode,null,null,startSeat,endSeat);
            spaceAllocationRepo.save(spaceAllocation);
        }
         Employee employee = employeeRepo.findByEmployeeId(space.getEmpId());

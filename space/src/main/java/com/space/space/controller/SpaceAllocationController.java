@@ -28,6 +28,7 @@ public class SpaceAllocationController {
 
     @PostMapping("/spaceX/allocateSpace")
     public DepartmentSeats allocateSpace(@RequestBody Space space){
+        System.out.println(space);
         return spaceAllocationService.allocateSpace(space);
     }
 }

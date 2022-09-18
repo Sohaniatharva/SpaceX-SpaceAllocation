@@ -7,26 +7,41 @@ function Login() {
   
   const [isValid, setIsValid] = useState(true);
   const [formData, setFormData] = useState(0);
+  const [id,setId]=useState(null);
   let navigate = useNavigate();
-  const handelClick = (e) => {
+  const handelClick = (dis) => {
+    console.log(dis);
     setIsValid(current => !current);
     if(formData==0)
     {
         alert('Please Enter EmpId.')
     }
     else {
-      navigate('/members/avp/', {state:formData});
+      if(dis=='VP')
+      {
+      navigate('/members/vp/', {state:formData});
+      }
     }
   }
 
   const handleChange = (e) => {
 
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    setId(e.target.value)
    
   }
   const handleSubmit = (e) => {
+
     e.preventDefault();
-    handelClick(e);
+    axios.get(` http://localhost:9091/spaceX/allocateSpace/{empId}?empId=${id} `).then((res)=>{
+ 
+      handelClick(res.data.designation);
+      
+     
+       
+      }) 
+
+   
   }
 
 

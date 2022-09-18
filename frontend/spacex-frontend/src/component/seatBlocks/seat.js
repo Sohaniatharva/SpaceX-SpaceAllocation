@@ -1,25 +1,33 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
 const Seat=(props)=> {
   const [green, setGreen]=useState(false);
   const [red, setRed]=useState(false);
-  const {k,oecode,seats}=props;
+  const {k,oecode,seats,empId}=props;
   useEffect(()=>{
     setGreen(false)
     setRed(false)
-    seats.map((value)=>{
-      console.log(value);
+ 
+      //  axios.get(`http://localhost:9091/spaceX/allocateSpace/?${location.state.empId}`).then(res=>{console.log(res.data)})
+      axios.get(` http://localhost:9091/spaceX/allocateSpace/{empId}?empId=${empId} `).then((res)=>{
+        console.log(res);
+        
+        res.data.seats.map((value)=>{
+      // console.log(value);
       if(value.seatId==k&&value.department!=null){
-        if(value.department.departmentOECode==oecode){
+        if(value.department.departmentOECode==res.data.departmentOECode){
           setGreen(true)
           console.log("true");
         }
-        else if(value.department.departmentOECode!=null&&value.department.departmentOECode!=oecode){
+        else if(value.department.departmentOECode!=null&&value.department.departmentOECode!=res.data.departmentOECode){
           setRed(true);
         }
       }
     })
+  }) 
+
 
   },[k])
  
