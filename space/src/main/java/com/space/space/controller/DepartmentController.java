@@ -17,9 +17,9 @@ public class DepartmentController {
         return departmentService.addDepartment(department);
     }
 
-    @PutMapping("/department")
-    public Department updateDepartment(@RequestBody Department department) {
-        return departmentService.updateDepartment(department);
+    @PutMapping("/department/{departmentOeCode}")
+    public Department updateDepartment(@PathVariable String departmentOeCode, @RequestBody Department department) {
+        return departmentService.updateDepartment(departmentOeCode,department);
     }
 
     @GetMapping("/departments")

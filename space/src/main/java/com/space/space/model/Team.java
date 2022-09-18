@@ -18,7 +18,7 @@ class Team {
     private String teamName;
     private int AVPEmpId;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "department_OE_code")
-//    private Department department;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "department_OE_code")
+    private Department department;
 }

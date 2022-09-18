@@ -1,5 +1,6 @@
 package com.space.space.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class Employee {
     @JoinColumn(name = "department_OE_code")
     private Department department;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "seatId")
-//    private Seat seat;
+    @OneToOne(mappedBy = "employee")
+    @JsonManagedReference
+    private Seat seat;
 }

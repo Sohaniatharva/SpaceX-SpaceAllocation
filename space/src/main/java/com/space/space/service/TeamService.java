@@ -20,8 +20,12 @@ public class TeamService {
         return teamRepo.save(team);
     }
 
-    public Team updateTeam(Team team){
-        return teamRepo.save(team);
+    public Team updateTeam(String teamOECode, Team team){
+        Team old_team = teamRepo.findById(teamOECode).get();
+        old_team.setTeamName(team.getTeamName());
+        old_team.setDepartment(team.getDepartment());
+        old_team.setAVPEmpId(team.getAVPEmpId());
+        return teamRepo.save(old_team);
     }
 
     public Team getTeamById(String teamId){

@@ -24,8 +24,14 @@ public class SeatService {
         return seatRepo.findById(seatId).get();
     }
 
-    public Seat updateSeat(Seat seat) {
-        return seatRepo.save(seat);
+    public Seat updateSeat(String seatId, Seat seat) {
+        Seat oldSeat = seatRepo.findById(seatId).get();
+
+        oldSeat.setEmployee(seat.getEmployee());
+        oldSeat.setDepartment(seat.getDepartment());
+        oldSeat.setTeam(seat.getTeam());
+
+        return seatRepo.save(oldSeat);
     }
 
     public boolean deleteSeat(String seatId) {

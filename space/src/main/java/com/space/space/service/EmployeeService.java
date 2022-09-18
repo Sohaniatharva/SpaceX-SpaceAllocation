@@ -16,7 +16,31 @@ public class EmployeeService {
         return employeeRepo.findAll();
     }
 
+    public Employee getEmployeeById(int employeeId){
+        return employeeRepo.findById(employeeId).get();
+    }
+
     public Employee addEmployee(Employee employee){
         return employeeRepo.save(employee);
     }
+
+    public Employee updateEmployee(int employeeId, Employee employee){
+        Employee old_employee = employeeRepo.findById(employeeId).get();
+
+        old_employee.setEmployeeName(employee.getEmployeeName());
+        old_employee.setDepartment(employee.getDepartment());
+        old_employee.setDesignation(employee.getDesignation());
+        old_employee.setPassword(employee.getPassword());
+        old_employee.setOECode(employee.getOECode());
+        old_employee.setReportsTo(employee.getReportsTo());
+        old_employee.setTeam(employee.getTeam());
+
+        return employeeRepo.save(old_employee);
+    }
+
+    public boolean deleteEmployee(int employeeId){
+        employeeRepo.deleteById(employeeId);
+        return !employeeRepo.existsById(employeeId);
+    }
+
 }

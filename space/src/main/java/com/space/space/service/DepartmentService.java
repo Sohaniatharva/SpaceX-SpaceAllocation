@@ -16,8 +16,11 @@ public class DepartmentService {
         return departmentRepo.save(department);
     }
 
-    public Department updateDepartment(Department department) {
-        return departmentRepo.save(department);
+    public Department updateDepartment(String departmentOECode, Department department) {
+        Department old_department = departmentRepo.findById(departmentOECode).get();
+        old_department.setName(department.getName());
+        old_department.setVPEmpId(department.getVPEmpId());
+        return departmentRepo.save(old_department);
     }
 
     public List<Department> getAllDepartments() {
