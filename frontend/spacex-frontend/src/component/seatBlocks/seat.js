@@ -1,10 +1,19 @@
 import React from "react";
 import "./style.css";
-const Seat=()=> {
+
+const Seat=(props)=> {
+  const {k}=props;
+  const isBooked=[];
+  // data.map((val,key)=>{
+  //   console.log(val)
+
+  // })
+  // const classes = ["div1", ? "btn-green" : "btn-red"].join(" ");
+
     return (
       <div >
-         <div class="div1">
-          <span class="tooltiptext">L1/c/100</span>
+         <div className="div1" >
+          <span class="tooltiptext">{k}</span>
          </div>
       </div>
       

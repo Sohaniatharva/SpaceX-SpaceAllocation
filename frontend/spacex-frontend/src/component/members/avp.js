@@ -1,4 +1,3 @@
-
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import React, { useState } from "react";
@@ -8,10 +7,11 @@ import "./styles.css"
 import Seats from '../seatBlocks/seats';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import moment from 'moment';
+import axios from 'axios';
+// import moment from 'moment';
 const AVP = () => {
   const location = useLocation();
-  const [floor, setFloor] = useState(0);
+  const [floor, setFloor] = useState(1);
   const [show, setShow] = useState(false);
   let [num, setNum]= useState(0);
   let incNum =()=>{
@@ -37,15 +37,12 @@ const AVP = () => {
     setShow(current => !current);
     
   }
-
+  
   return (
     <div class="outer-div">
       <div class="upr-div row" >
         <div class="col-lg-8">
           <img style={{ height: "60px", marginLeft: "8px" }} src="http://www.fundraiso.ch/wp-content/uploads/2021/02/CS-Logo-1-scaled.jpg"></img>
-        </div>
-        <div class="col-lg-4 username">
-          <p>Hello {location.state}</p>
         </div>
       </div>
       <div>
@@ -65,18 +62,17 @@ const AVP = () => {
           </div>
           <div className='col-lg-6'>
             <div class="row box-style">
-              <div class="col-lg-3" style={{ margin: '0 2px 2px' }}>
+              <div class="col-lg-4" style={{ margin: '0 2px 2px',width:'30%' }}>
                 <div className="row">
                   <div className="col-md-12" style={{ backgroundColor: 'navy', padding: '10px,5px', color: 'white', padding: '4px' }}>
                     <Form.Group controlId="startDate">
                       <Form.Label>Start Date</Form.Label>
-                      <Form.Control type="date" name="startDate" placeholder="Start Date" 
-                      />
+                      <Form.Control type="date" name="startDate" placeholder="Start Date" />
                     </Form.Group>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3" style={{ margin: '0 2px' }}>
+              <div class="col-lg-4" style={{ margin: '0 2px',width:'30%' }}>
                 <div className="row">
                   <div className="col-md-12" style={{ backgroundColor: 'navy', padding: '10px,5px', color: 'white', padding: '4px' }}>
                     <Form.Group controlId="endDate">
@@ -97,20 +93,20 @@ const AVP = () => {
       <div class="seatBox">
         <div class="row" style={{margin:0,padding:0,display:'flex',justifyContent:'space-between'}} >
           <div class="col=lg-6" style={{ width: "49%",boxShadow:'navy 1px 5px 8px 2px',borderRadius:'5px',margin:'2px' }}>
-            <Seats wing="A"></Seats>
+            <Seats wing="A" floor={floor}></Seats>
           </div>
           <div class="col=lg-6" style={{ width: "49%", float: "left" ,boxShadow:'navy 1px 5px 8px 2px',borderRadius:'5px',margin:'2px'}}>
-            <Seats wing="B"></Seats>
+            <Seats wing="B" floor={floor}></Seats>
           </div>
 
         </div>
         <br></br>
         <div class="row" style={{margin:0,padding:0,display:'flex',justifyContent:'space-between'}} >
           <div class="col=lg-6"style={{ width: "49%",boxShadow:'navy 1px 5px 8px 2px',borderRadius:'5px',margin:'2px' }}>
-            <Seats wing="C"></Seats>
+            <Seats wing="C" floor={floor}></Seats>
           </div>
           <div class="col=lg-6" style={{ width: "49%",boxShadow:'navy 1px 5px 8px 2px',borderRadius:'5px',margin:'2px' }}>
-            <Seats wing="D"></Seats>
+            <Seats wing="D" floor={floor}></Seats>
           </div>
 
         </div>
