@@ -2,13 +2,13 @@ import React from "react";
 import Seat from "./seat";
 import "./style.css";
 const Seats = (props) => {
-  const {floor,wing,oecode,seats}=props;
+  const {floor,wing}=props;
 
   const rows = [];
   for (let i = 0; i < 40; i++) {
     const id=i+1;
     
-    rows.push(<Seat k={'L'+floor+'-'+wing+'-'+id} oecode={oecode} seats={seats}/>);
+    rows.push(<Seat k={'L'+floor+'-'+wing+'-'+id}/>);
   }
   return (
     <div style={{position:'relative'}}>
