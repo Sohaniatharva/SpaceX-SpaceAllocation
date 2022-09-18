@@ -1,5 +1,6 @@
 package com.space.space.service;
 
+import com.space.space.exception.EmployeeNotFoundException;
 import com.space.space.model.Employee;
 import com.space.space.repository.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,19 +13,20 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepo employeeRepo;
 
-    public List<Employee> getAllEmployee(){
+    public List<Employee> getAllEmployee() {
         return employeeRepo.findAll();
     }
 
-    public Employee getEmployeeById(int employeeId){
-        return employeeRepo.findById(employeeId).get();
+    public Employee getEmployeeById(int employeeId) {
+        return employeeRepo.findById(employeeId).orElseThrow(() -> new
+                EmployeeNotFoundException("Employee with id : " + employeeId + " not found"));
     }
 
-    public Employee addEmployee(Employee employee){
+    public Employee addEmployee(Employee employee) {
         return employeeRepo.save(employee);
     }
 
-    public Employee updateEmployee(int employeeId, Employee employee){
+    public Employee updateEmployee(int employeeId, Employee employee) {
         Employee old_employee = employeeRepo.findById(employeeId).get();
 
         old_employee.setEmployeeName(employee.getEmployeeName());
@@ -38,7 +40,7 @@ public class EmployeeService {
         return employeeRepo.save(old_employee);
     }
 
-    public boolean deleteEmployee(int employeeId){
+    public boolean deleteEmployee(int employeeId) {
         employeeRepo.deleteById(employeeId);
         return !employeeRepo.existsById(employeeId);
     }
